@@ -16,15 +16,15 @@
             "type": "session"
           },
           {
-            "background": "#0087D8",
-            "foreground": "#003544",
+            "background": "#a6d9f9",
+            "foreground": "#011014",
             "powerline_symbol": "\ue0b0",
             "properties": {
               "folder_separator_icon": "/",
               "style": "full"
             },
             "style": "powerline",
-            "template": " \ue5ff {{ .Path }} ",
+            "template": " {{ .Path }} ",
             "type": "path"
           },
           {
@@ -35,7 +35,7 @@
               "{{ if gt .Ahead 0 }}#89d1dc{{ end }}",
               "{{ if gt .Behind 0 }}#f17c37{{ end }}"
             ],
-            "foreground": "#193549",
+            "foreground": "#01111c",
             "powerline_symbol": "\ue0b0",
             "properties": {
               "fetch_stash_count": true,
@@ -51,17 +51,17 @@
             "foreground": "#fff",
             "powerline_symbol": "\ue0b0",
             "style": "powerline",
-            "template": "<#fff> \ue641 </>{{ .CurrentDate | date .Format }} ",
+            "template": "<#fff>  </>{{ .CurrentDate | date .Format }} ",
             "type": "time"
           },
           {
-            "background": "#83769c",
+            "background": "#9e96ad",
             "foreground": "#ffffff",
             "properties": {
               "always_enabled": true
             },
             "style": "diamond",
-            "template": " \ueba2 {{ .FormattedMs }}\u2800",
+            "template": "  {{ .FormattedMs }}\u2800",
             "trailing_diamond": "\ue0b4",
             "type": "executiontime"
           }
