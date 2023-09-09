@@ -3,6 +3,7 @@ alias sudo='sudo '
 
 alias ..="cd .."
 alias ...="cd ../.."
+alias ls="eza"
 alias ll="eza --header -l"
 alias la="eza --header -la"
 alias ~="cd ~"
