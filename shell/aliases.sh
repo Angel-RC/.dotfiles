@@ -1,6 +1,5 @@
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
-alias fuck='sudo !!'
 
 alias ..="cd .."
 alias ...="cd ../.."
