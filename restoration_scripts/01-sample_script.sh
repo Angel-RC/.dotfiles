@@ -8,3 +8,6 @@ sudo apt install fd-find
 # Download Oh My Posh
 sudo apt install unzip
 curl -s https://ohmyposh.dev/install.sh | sudo bash -s
+# Install tldr
+sudo apt install tldr
+tldr -u
