@@ -3,14 +3,18 @@ alias sudo='sudo '
 
 alias ..="cd .."
 alias ...="cd ../.."
-alias ls="eza"
-alias ll="eza --header -l"
-alias la="eza --header -la"
+alias ls="eza --group-directories-first --modified --created --sort=type"
+alias ll="eza --header -l --group-directories-first --modified --created --sort=type"
+alias la="eza --header -la --group-directories-first --modified --created --sort=type"
 alias ~="cd ~"
 alias dotfiles='cd $DOTFILES_PATH'
 alias htop='glances'
 alias fd='fdfind'
+alias grep='grep --color=auto'
 
+alias cat="batcat --paging never"
+alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+alias meme="echo '¯\_(ツ)_/¯' | pbcopy | echo '=> Copied to pasteboard.'"
 # Git
 alias gaa="git add -A"
 alias gc='$DOTLY_PATH/bin/dot git commit'

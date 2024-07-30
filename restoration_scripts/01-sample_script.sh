@@ -5,6 +5,8 @@ echo
 cargo install eza
 sudo apt install glances
 sudo apt install fd-find
+sudo apt install bat
+sudo apt install xclip
 # Download Oh My Posh
 sudo apt install unzip
 curl -s https://ohmyposh.dev/install.sh | sudo bash -s
