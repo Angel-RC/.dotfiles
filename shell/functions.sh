@@ -10,6 +10,14 @@ function z() {
 	_z "$1"
 }
 
+
+function pubkey() {
+    file=$(ls -1 --sort=modified  ~/.ssh | grep .pub | fzf --layout=reverse --header="Selecciona la clave publica que quieres copiar")
+    cat ~/.ssh/$file | pbcopy | echo '=> Public key copied to pasteboard.'
+}
+
+
+
 function recent_dirs() {
 	# This script depends on pushd. It works better with autopush enabled in ZSH
 	escaped_home=$(echo $HOME | sed 's/\//\\\//g')
