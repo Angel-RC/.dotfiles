@@ -12,8 +12,8 @@ alias htop='glances'
 alias fd='fdfind'
 alias grep='grep --color=auto'
 
-alias cat="batcat --paging never"
-alias meme="echo '¯\_(ツ)_/¯' | pbcopy | echo '=> Copied to pasteboard.'"
+alias bcat="batcat --paging never"
+alias meme="echo '¯\_(ツ)_/¯' | pbcopy | echo '=> Copied meme to pasteboard.'"
 # Git
 alias gaa="git add -A"
 alias gc='$DOTLY_PATH/bin/dot git commit'
