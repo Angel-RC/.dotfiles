@@ -48,9 +48,3 @@ if [ -n "$(ls -A "$DOTFILES_PATH/shell/bash/completions/")" ]; then
     source "$bash_file"
   done
 fi
-eval "$(/bin/brew shellenv)"
-eval "$(/bin/brew shellenv)"
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

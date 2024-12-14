@@ -1,0 +1,8 @@
+#!/bin/bash
+
+
+LASTLOG_DATETIME=$(lastlog | awk -v user="chicote" '$0 ~ user {printf("%s-%s-%s, %s", $6, $5, $9, $7)}')
+LASTLOG_IP=$(lastlog | awk -v user="chicote" '$0 ~ user {print $3}')
+
+printf "Last login (chicote): \033[32m%s\033[0m from \033[32m%s\033[0m\n" "$LASTLOG_DATETIME" "$LASTLOG_IP"
+
