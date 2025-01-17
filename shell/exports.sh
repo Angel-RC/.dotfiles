@@ -29,6 +29,7 @@ export FZF_DEFAULT_OPTS="--color=$fzf_colors --reverse"
 # ------------------------------------------------------------------------------
 path=(
 	"$HOME/bin"
+	"$HOME/google-cloud-sdk/bin"
 	"$HOME/.local/bin"
 	"$DOTLY_PATH/bin"
 	"$DOTFILES_PATH/bin"
