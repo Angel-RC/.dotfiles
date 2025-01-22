@@ -17,3 +17,4 @@
     ~/.zshenv: shell/zsh/.zshenv
     ~/.zshrc: shell/zsh/.zshrc
     ~/.inputrc: shell/.inputrc
+    /opt/quarto/1.7.13/bin/quarto: /usr/local/bin/quarto

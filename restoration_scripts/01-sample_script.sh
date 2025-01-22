@@ -21,6 +21,28 @@ function install_fail2ban(){
 }
 
 
+# Install quarto
+# Puede que no identifique bien la version, en cuyo caso hay que ponerla manualmente
+# La ultima version la puedes obtener de aqui: https://github.com/quarto-dev/quarto-cli/releases/
+function install_quarto(){
+    cd ~
+    sudo mkdir -p /opt/quarto/${QUARTO_VERSION}
+    sudo curl -o quarto.tar.gz -L \
+    "https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.tar.gz"
+
+    sudo tar -zxvf quarto.tar.gz \
+    -C "/opt/quarto/${QUARTO_VERSION}" \
+    --strip-components=1
+    
+    sudo rm quarto.tar.gz
+
+    # Verify the installation
+    /opt/quarto/"${QUARTO_VERSION}"/bin/quarto check
+
+    # if not worthing the symlink, try this:
+    # sudo ln -s /opt/quarto/${QUARTO_VERSION}/bin/quarto /usr/local/bin/quarto
+}
+
 function install_docker(){
     sudo curl -fsSL https://get.docker.com/ -o get-docker.sh
     sudo sh get-docker.sh    
@@ -31,6 +53,7 @@ function install_docker(){
 install_docker
 install_fail2ban
 install_tools
+install_quarto
 
 # Install Fuck
 sudo apt update
