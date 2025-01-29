@@ -4,8 +4,8 @@ alias sudo='sudo '
 alias ..="cd .."
 alias ...="cd ../.."
 alias ls="eza --group-directories-first --sort=type --sort=modified -r"
-alias ll="eza --header -l --group-directories-first --total-size --modified --created --sort=type --sort=modified -r"
-alias la="eza --header -la --group-directories-first --total-size --modified --created --sort=type --sort=modified -r"
+alias ll="eza --header -l  --group-directories-first --modified --created --sort=type --sort=modified -r"
+alias la="eza --header -la --group-directories-first --modified --created --sort=type --sort=modified -r"
 alias ~="cd ~"
 alias motd="run-parts /etc/update-motd.d/"
 alias dotfiles='cd $DOTFILES_PATH'
@@ -13,7 +13,7 @@ alias htop='glances'
 alias fd='fdfind'
 alias grep='grep --color=auto'
 
-alias bcat="batcat --paging never"
+alias cat="batcat --paging never"
 alias meme="echo '¯\_(ツ)_/¯' | pbcopy | echo '=> Copied meme to pasteboard.'"
 # Git
 alias gaa="git add -A"
