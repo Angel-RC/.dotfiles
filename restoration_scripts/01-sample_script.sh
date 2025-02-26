@@ -8,6 +8,12 @@ function install_tools(){
     sudo apt install fd-find
     sudo apt install bat
     sudo apt install xclip
+    # Install duf (https://github.com/muesli/duf?tab=readme-ov-file)
+    sudo apt install duf
+    # Install Fuck
+    sudo apt update
+    sudo apt install python3-dev python3-pip python3-setuptools
+    pip3 install thefuck --user
     # Install tldr
     sudo apt install tldr
     tldr -u
@@ -55,10 +61,6 @@ install_fail2ban
 install_tools
 install_quarto
 
-# Install Fuck
-sudo apt update
-sudo apt install python3-dev python3-pip python3-setuptools
-pip3 install thefuck --user
 
 # Download Oh My Posh
 sudo apt install unzip
