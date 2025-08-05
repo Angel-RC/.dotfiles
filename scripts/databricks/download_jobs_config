@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+source "$DOTLY_PATH/scripts/core/_main.sh"
+source "$DOTFILES_PATH/shell/functions.sh"
+
+##?  Uso de download_jobs_config:
+##?  
+##?  Usage:
+##?    download_jobs_config [PERFIL] [TAG] [RUTA_DESTINO]
+docs::parse "$@"
+
+function download_jobs_config() {
+    local ruta_destino="${3:-jobs2}"
+    local tag="${2:-DNA}"
+    local profile="${1:-mahourdatabricksdes_analytics}"
+    
+    # Crear directorio si no existe
+    mkdir -p "$ruta_destino"
+    
+    echo "Obteniendo jobs con tag $tag usando perfil $profile..."
+    
+    # Obtener lista de jobs
+    jobs_json=$(databricks jobs list --profile "$profile" --output JSON --expand-tasks)
+    
+    # Procesar cada job que tenga el tag especificado
+    echo "$jobs_json" | jq -c ".[] | select(.settings.tags.$tag != null)" | while read -r job; do
+        # Extraer datos del job
+        job_name=$(echo "$job" | jq -r '.settings.name // .name')
+        job_id=$(echo "$job" | jq -r '.job_id')
+        
+        # Limpiar nombre para usarlo como nombre de archivo
+        clean_name=$(echo "$job_name" | sed 's/[^a-zA-Z0-9._-]/_/g' | sed 's/_{2,}/_/g')
+        
+        # Crear nombre de archivo
+        filename="${ruta_destino}/${clean_name}_${job_id}.json"
+        
+        # Guardar el job en el archivo JSON formateado
+        databricks jobs get "$job_id" --profile "$profile" --output JSON | jq '.' > "$filename"
+        
+        echo "✓ Guardado: $filename (Job: $job_name)"
+    done
+    
+}
+
+# Ejemplo de uso con los valores originales
+# obtener_jobs_por_tag "temporal/jobs" "DNA" "mahourdatabricksdes_analytics"
+
+download_jobs_config
