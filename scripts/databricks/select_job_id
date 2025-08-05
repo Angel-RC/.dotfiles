@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+source "$DOTLY_PATH/scripts/core/_main.sh"
+source "$DOTFILES_PATH/shell/functions.sh"
+
+##?  Uso de select_job_id:
+##?  
+##?  Usage:
+##?    select_job_id
+docs::parse "$@"
+
+
+function select_job_id() {   
+    # Obtener la lista de jobs y usar fzf para seleccionar
+    selected_job=$(databricks jobs list --profile mahourdatabricksdes_analytics | \
+        fzf --prompt="Selecciona un job: " \
+            --header="Usa las flechas para navegar o busca por patrón, Enter para seleccionar, Esc para cancelar" \
+            --height=40% \
+            --reverse \
+            --border)
+
+    job_id=$(echo "$selected_job" | awk '{print $1}')
+
+    echo "$job_id"
+}
+
+select_job_id
